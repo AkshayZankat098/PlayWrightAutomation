@@ -1,19 +1,18 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test.use({ headless: false });
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+test('searches Google for Virat Kohli', async ({ page, browserName }) => {
+  test.skip(browserName !== 'chromium', 'Run this visible inspection in Chromium only');
+  test.setTimeout(0);
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+  await page.goto('https://www.google.com/');
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  const searchBox = page.locator('textarea[name="q"], input[name="q"]').first();
+  await searchBox.fill('Virat Kohli');
+  await searchBox.press('Enter');
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  await page.pause();
+  await expect(page).toHaveURL(/google\.[^/]+\/search\?.*q=Virat\+Kohli/);
 });
