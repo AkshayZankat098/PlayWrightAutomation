@@ -1,18 +1,23 @@
-// @ts-check
-import { test, expect } from '@playwright/test';
+const { test } = require('@playwright/test');
 
-test.use({ headless: false });
+test('launch browser', async ({page}) => {
 
-test('searches Google for Virat Kohli', async ({ page, browserName }) => {
-  test.skip(browserName !== 'chromium', 'Run this visible inspection in Chromium only');
-  test.setTimeout(0);
+    await page.goto('https://practicetestautomation.com/practice-test-login/');
 
-  await page.goto('https://www.google.com/');
+    const currentURL = page.url();
 
-  const searchBox = page.locator('textarea[name="q"], input[name="q"]').first();
-  await searchBox.fill('Virat Kohli');
-  await searchBox.press('Enter');
+    if (currentURL.includes('practicetestautomation.com')) {
+      console.log('The URL contains the expected string.' + currentURL);
+    }else {
+      console.log('The URL does not contain the expected string.');
+    }
 
-  await page.pause();
-  await expect(page).toHaveURL(/google\.[^/]+\/search\?.*q=Virat\+Kohli/);
+
+    await page.locator('#username').fill('student');
+    await page.locator('#password').fill('Password123');
+    await page.locator("//button[@id='submit']").click();
+
+    await page.pause();
+
 });
+
