@@ -1,9 +1,14 @@
 {
-  "name": "playwrite-automation",
+  "name": "playwright-automation",
   "version": "1.0.0",
-  "description": "",
+  "description": "Browser test automation with Playwright and JavaScript",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report reports"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
