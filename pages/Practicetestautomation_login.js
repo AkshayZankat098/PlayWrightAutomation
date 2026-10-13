@@ -1,6 +1,6 @@
-const { LOGIN_PATH } = require('../constants/constants');
+const { Practicetestautomation_URL } = require('../constants/constants');
 
-class LoginPage {
+class Practicetestautomation_login {
   constructor(page) {
     this.page = page;
     this.usernameInput = page.locator('#username');
@@ -9,7 +9,7 @@ class LoginPage {
   }
 
   async open() {
-    await this.page.goto(LOGIN_PATH);
+    await this.page.goto(Practicetestautomation_URL);
   }
 
   async login(username, password) {
@@ -19,4 +19,4 @@ class LoginPage {
   }
 }
 
-module.exports = LoginPage;
+module.exports = Practicetestautomation_login;

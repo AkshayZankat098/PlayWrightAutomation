@@ -1,10 +1,10 @@
 const { test, expect } = require('@playwright/test');
-const LoginPage = require('../../pages/LoginPage');
+const Practicetestautomation_login = require('../../pages/Practicetestautomation_login');
 const userData = require('../../test-data/test-data.json');
 
 
 test('valid user can log in', async ({ page }) => {
-  const loginPage = new LoginPage(page);
+  const loginPage = new Practicetestautomation_login(page);
 
   await loginPage.open();
   await loginPage.login(userData.validUser.username, userData.validUser.password);
