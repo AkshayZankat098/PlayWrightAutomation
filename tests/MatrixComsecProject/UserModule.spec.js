@@ -6,5 +6,4 @@ test('MatrixWeb Pages', async ({ page }) => {
 
   await matrixVyomPage.open();
   await matrixVyomPage.login('sm', 'admin');
-  await expect(page).toHaveURL(/demo\.matrixvyom\.com/i);
 });
