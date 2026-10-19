@@ -11,6 +11,10 @@ module.exports = defineConfig({
 
   use: {
     headless: true,
+    viewport: null,
+    launchOptions: {
+      args: ['--start-maximized'],
+    },
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
