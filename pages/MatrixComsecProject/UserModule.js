@@ -2,6 +2,7 @@ const { MatrixVyom_URL } = require('../../constants/constants');
 
 class MatrixVyomPage {
 
+  /** @param {import('@playwright/test').Page} page */
   constructor(page) {
     this.page = page;
     this.usernameInput = page.locator("//input[@id='loginid']");
@@ -14,6 +15,7 @@ class MatrixVyomPage {
     this.AddUser_Name = page.locator('#AutoUserName');
     this.SortName = page.locator("#TxtUShtName");
     this.Click_Save = page.locator("#btnSave");
+    
 
   }
 
