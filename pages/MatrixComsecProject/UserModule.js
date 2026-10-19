@@ -36,7 +36,6 @@ class MatrixVyomPage {
     await this.AddUser_Name.click();
     await this.AddUser_Name.fill('AkshaySDET');
     await this.SortName.click();
-    await this.Click_Save.click();
   } 
 
 
