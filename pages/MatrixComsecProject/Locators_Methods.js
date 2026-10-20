@@ -1,6 +1,6 @@
 /*
 
---- Methods using page.locator()
+--- Methods using page.locator() mainly used for locating elements via CSS and Xpath
 
 1. By ID: page.locator('#username')
 2. By attribute: page.locator('[name="email"]')
@@ -20,8 +20,8 @@
 3. getByPlaceholder() — page.getByPlaceholder('Enter email')
 4. getByText() — page.getByText('Welcome')
 5. getByTestId() — page.getByTestId('submit-button')
-6. getByTitle() — to locate an element by its title attribute.
-7. getByAltText() — to locate an element, usually image, by its text alternative.
+6. getByTitle() — <button title="Close">X</button> ---- page.getByTitle('Close').click();
+7. getByAltText() — to locate an element, usually image, by its text alternative. <img src="logo.png" alt="Company Logo"> -- page.getByAltText('Company Logo').click();
 8. Filter by child locator — .filter({ has: page.getByRole('button', { name: 'Buy' }) })
 9. Chained locator — page.locator('.card').locator('.price')
 10. Parent locator — page.locator('input').locator('..')
@@ -33,37 +33,38 @@
 locator.click()
 locator.fill('text')
 locator.clear()
-locator.press('Enter')
+locator.press('Enter') Only need to enter the name of the key and then done.
 locator.check()
 locator.uncheck()
-locator.selectOption('value')
+locator.selectOption('value') To manage the dropdowns. 
 locator.hover()
 locator.focus()
 locator.blur()
-locator.setInputFiles('filePath')
+locator.setInputFiles('filePath') used in Playwright to upload files through a file input element.
+- await page.locator('input[type="file"]').setInputFiles('C:/files/resume.pdf');
+count() returns the number of elements matching the locator
+- const count = await page.locator('button').count();
+- console.log(count);
 
-fill(), clear(), press(), check(), uncheck(), isChecked(), toBeChecked(), click()
-selectOption(), inputValue(), toHaveValue(), count(), click(), evaluate()
+--- Playwright methods that return Booleans
+isChecked()	 Whether a checkbox or radio button is checked
+isVisible()	 Whether an element is visible
+isHidden()	 Whether an element is hidden
+isEnabled()	 Whether an element is enabled
+isDisabled() Whether an element is disabled
+isEditable() Whether an element is editable
+isFocused()	 Whether an element has focus
 
 
 --- Get information
-locator.textContent()
-locator.innerText()
-locator.inputValue()
-locator.getAttribute('href')
-locator.isVisible()
-locator.isEnabled()
-locator.isDisabled()
-locator.isChecked()
+locator.textContent() – Returns the text content of an element, including hidden text.
+locator.innerText() – Returns the visible, rendered text of an element.
+locator.inputValue() – Returns the current value of an input field.
+locator.getAttribute('href') – Returns the value of the element’s href attribute.
 
--- Locate elements
-locator.count()
-locator.first()
-locator.last()
 
--- Assertions (Playwright Test)
-
-await expect(locator).toBeVisible();
+-- Assertions : Assertions are used to verify whether the actual result matches the expected result in a test.
+await expect(page.locator('button')).toBeVisible();
 await expect(locator).toBeHidden();
 await expect(locator).toHaveText('text');
 await expect(locator).toContainText('text');
