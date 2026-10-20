@@ -11,12 +11,17 @@ class MatrixVyomPage {
     this.UserModule = page.locator("//div[@class='ng-scope']//div[2]");
     this.UserList = page.locator("//a[@id='7001']");
     this.AddUser = page.locator("//button[@id='btnNew']");
+<<<<<<< Updated upstream
     this.AddUser_ID = page.locator('[name="autoCompleteId"]');
     this.AddUser_Name = page.locator('#AutoUserName');
     this.SortName = page.locator("#TxtUShtName");
     this.Click_Save = page.locator("#btnSave");
     
 
+=======
+
+    this.testUser = page.ge
+>>>>>>> Stashed changes
   }
 
   async open() {
