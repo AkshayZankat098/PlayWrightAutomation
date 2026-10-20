@@ -9,7 +9,10 @@
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
     "test:report": "playwright show-report reports",
-    "test:chromium": "playwright test --project=chromium"
+    "test:chromium": "playwright test --project=chromium",
+    "test:ci": "playwright test --project=chromium",
+    "install:browsers": "playwright install chromium",
+    "ci:install": "npm ci && playwright install --with-deps chromium"
   },
   "keywords": [],
   "author": "",
