@@ -1,4 +1,3 @@
-
 name: Playwright Tests
 
 on:
@@ -53,3 +52,30 @@ jobs:
           path: test-results/
           if-no-files-found: warn
           retention-days: 30
+
+  deploy-report:
+    name: Deploy Playwright Report
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    needs: test
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Download HTML report
+        uses: actions/download-artifact@v4
+        with:
+          name: playwright-html-report
+          path: reports/
+
+      - name: Upload report to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: reports/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
