@@ -1,5 +1,5 @@
-const MatrixVyom_URL = 'https://demo.matrixvyom.com/Login/Login';
+const Qtrip = 'https://qtripdynamic-qa-frontend.vercel.app/';
 
 module.exports = {
-  MatrixVyom_URL
+  Qtrip
 };
