@@ -43,7 +43,6 @@ locator.blur()
 locator.setInputFiles('filePath')
 
 fill(), clear(), press(), check(), uncheck(), isChecked(), toBeChecked(), click()
-
 selectOption(), inputValue(), toHaveValue(), count(), click(), evaluate()
 
 
