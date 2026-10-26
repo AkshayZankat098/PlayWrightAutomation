@@ -8,4 +8,5 @@ test('opens the QTrip homepage', async ({ page }) => {
   await qtripPage.open();
 
   await expect(page).toHaveURL(Qtrip);
+  
 });
