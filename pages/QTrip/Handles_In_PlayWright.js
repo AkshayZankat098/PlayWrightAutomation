@@ -18,11 +18,29 @@
 4. Multiple tabs / windows	Handles 
 - a newly opened tab or window. const newPage = await page.context().waitForEvent('page')
 
+    async NewTAB() {
+        await this.page.goto(Qtrip);
+
+        const context = this.page.context();
+
+        const TAB1 = await context.newPage();
+        await TAB1.goto('https://www.google.com/');
+
+        const TAB2 = await context.newPage();
+        await TAB2.goto('https://www.youtube.com/');
+
+        const TAB3 = await context.newPage();
+        await TAB3.goto('https://www.facebook.com/');
+      }
+
 5. File upload	
 - Uploads a file through an input element. await page.locator('input[type="file"]').setInputFiles('resume.pdf')
 
 6. File download	
-- Captures a file download event. const downloadPromise = page.waitForEvent('download'); await page.locator('#download').click(); const download = await downloadPromise;
+- Captures a file download event. 
+- const downloadPromise = page.waitForEvent('download'); 
+- await page.locator('#download').click(); 
+- const download = await downloadPromise;
 
 7. Drag and drop	
 - Drags one element onto another. await page.locator('#source').dragTo(page.locator('#target'))

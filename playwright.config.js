@@ -15,13 +15,16 @@ module.exports = defineConfig({
   // Reports
   reporter: [
     ['list'],
-    ['html', {
-      outputFolder: 'reports',
-      open: 'never',
-    }],
+    [
+      'html',
+      {
+        outputFolder: 'reports',
+        open: 'never',
+      },
+    ],
   ],
 
-  // Shared browser and debugging settings
+  // Shared browser settings
   use: {
     headless: Boolean(process.env.CI),
     screenshot: 'only-on-failure',
