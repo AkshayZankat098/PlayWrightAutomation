@@ -46,6 +46,7 @@ class QtripPage {
     }
 
       async NewTAB() {
+        
         await this.page.goto(Qtrip);
 
         const context = this.page.context();
